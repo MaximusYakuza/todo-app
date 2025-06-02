@@ -1,32 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+  <meta charset="UTF-8">
   <title>Todo App</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<input type="text" id="filterInput" placeholder="Filtrar tareas..." />
-<ul id="taskList">
-  <li>Tarea 1</li>
-  <li>Tarea 2</li>
-  <li>Ejercicio</li>
-</ul>
+  <h1>Mi Todo App</h1>
 
-<script>
-  const input = document.getElementById("filterInput");
-  const list = document.getElementById("taskList");
+  <!-- Input para agregar tareas -->
+  <input type="text" id="taskInput" placeholder="Escribe una tarea" />
+  <button onclick="addTask()">Agregar tarea</button>
 
-  input.addEventListener("keyup", function () {
-    const filter = input.value.toLowerCase();
-    const tasks = list.getElementsByTagName("li");
+  <!-- Input para filtrar tareas -->
+  <input type="text" id="filterInput" placeholder="Filtrar tareas..." />
 
-    for (let i = 0; i < tasks.length; i++) {
-      const txt = tasks[i].textContent || tasks[i].innerText;
-      tasks[i].style.display = txt.toLowerCase().includes(filter) ? "" : "none";
+  <ul id="taskList"></ul>
+
+  <script>
+    function addTask() {
+      const input = document.getElementById("taskInput");
+      const taskText = input.value.trim();
+      if (taskText !== "") {
+        const li = document.createElement("li");
+        li.textContent = taskText;
+        document.getElementById("taskList").appendChild(li);
+        input.value = "";
+      }
     }
-  });
-</script>
 
+    const filterInput = document.getElementById("filterInput");
+    const taskList = document.getElementById("taskList");
 
+    filterInput.addEventListener("keyup", function () {
+      const filter = filterInput.value.toLowerCase();
+      const tasks = taskList.getElementsByTagName("li");
+
+      for (let i = 0; i < tasks.length; i++) {
+        const txt = tasks[i].textContent || tasks[i].innerText;
+        tasks[i].style.display = txt.toLowerCase().includes(filter) ? "" : "none";
+      }
+    });
+  </script>
 </body>
 </html>
+
