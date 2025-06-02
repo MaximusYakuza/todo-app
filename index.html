@@ -6,42 +6,15 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Mi Todo App</h1>
+  <h1>Todo App</h1>
 
-  <!-- Input para agregar tareas -->
-  <input type="text" id="taskInput" placeholder="Escribe una tarea" />
-  <button onclick="addTask()">Agregar tarea</button>
+  <input type="text" placeholder="Escribe una tarea" />
+  <button>Agregar tarea</button>
 
-  <!-- Input para filtrar tareas -->
-  <input type="text" id="filterInput" placeholder="Filtrar tareas..." />
+  <input type="text" placeholder="Filtrar tareas..." />
 
-  <ul id="taskList"></ul>
-
-  <script>
-    function addTask() {
-      const input = document.getElementById("taskInput");
-      const taskText = input.value.trim();
-      if (taskText !== "") {
-        const li = document.createElement("li");
-        li.textContent = taskText;
-        document.getElementById("taskList").appendChild(li);
-        input.value = "";
-      }
-    }
-
-    const filterInput = document.getElementById("filterInput");
-    const taskList = document.getElementById("taskList");
-
-    filterInput.addEventListener("keyup", function () {
-      const filter = filterInput.value.toLowerCase();
-      const tasks = taskList.getElementsByTagName("li");
-
-      for (let i = 0; i < tasks.length; i++) {
-        const txt = tasks[i].textContent || tasks[i].innerText;
-        tasks[i].style.display = txt.toLowerCase().includes(filter) ? "" : "none";
-      }
-    });
-  </script>
+  <ul>
+    <li>Ejemplo de tarea</li>
+  </ul>
 </body>
 </html>
-
