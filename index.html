@@ -1,14 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+  <meta charset="UTF-8">
   <title>Todo App</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>Mi Todo App</h1>
 
+  <!-- Input para agregar tareas -->
   <input type="text" id="taskInput" placeholder="Escribe una tarea" />
   <button onclick="addTask()">Agregar tarea</button>
+
+  <!-- Input para filtrar tareas -->
+  <input type="text" id="filterInput" placeholder="Filtrar tareas..." />
 
   <ul id="taskList"></ul>
 
@@ -23,6 +28,20 @@
         input.value = "";
       }
     }
+
+    const filterInput = document.getElementById("filterInput");
+    const taskList = document.getElementById("taskList");
+
+    filterInput.addEventListener("keyup", function () {
+      const filter = filterInput.value.toLowerCase();
+      const tasks = taskList.getElementsByTagName("li");
+
+      for (let i = 0; i < tasks.length; i++) {
+        const txt = tasks[i].textContent || tasks[i].innerText;
+        tasks[i].style.display = txt.toLowerCase().includes(filter) ? "" : "none";
+      }
+    });
   </script>
 </body>
 </html>
+
