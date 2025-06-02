@@ -2,4 +2,8 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f3f3f3;
   }
-  
+  #addBtn {
+    background-color: green;
+    color: white;
+  }
+    
