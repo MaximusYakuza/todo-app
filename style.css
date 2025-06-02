@@ -1,9 +1,14 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f3f3f3;
-  }
-  #addBtn {
-    background-color: green;
-    color: white;
-  }
-    
+  font-family: Arial;
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+input, button {
+  padding: 10px;
+  margin: 5px;
+}
+
+ul {
+  margin-top: 20px;
+}
